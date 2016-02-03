@@ -1,0 +1,16 @@
+{
+    "timestamp":timestamp,
+    "location":{
+        "address":"address",
+        "vegetar":{
+            "description":"",
+            "alergies":["nøtter","melk"],
+            "price":"price"
+        },
+        "dagens":{
+            "description":"",
+            "alergies":["nøtter","melk"],
+            "price":"price"
+        }
+    }
+}
