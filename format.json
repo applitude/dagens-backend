@@ -1,16 +1,47 @@
 {
     "timestamp":timestamp,
-    "location":{
-        "address":"address",
-        "vegetar":{
-            "description":"",
-            "alergies":["nøtter","melk"],
-            "price":"price"
+    "locations"[
+        {
+            "address":"address",
+            "place":"place",
+            "dishes"[
+
+                {
+                    "title":"title",
+                    "description":"",
+                    "allergies":["nøtter","melk"],
+                    "price":"price",
+                    "veggie":true
+                },
+                {
+                    "title":"title",
+                    "description":"",
+                    "allergies":["nøtter","melk"],
+                    "price":"price",
+                    "veggie":true
+                }
+            ]
         },
-        "dagens":{
-            "description":"",
-            "alergies":["nøtter","melk"],
-            "price":"price"
+        {
+            "address":"address",
+            "place":"place",
+            "dishes"[
+
+                {
+                    "title":"title",
+                    "description":"",
+                    "allergies":["nøtter","melk"],
+                    "price":"price",
+                    "veggie":true
+                },
+                {
+                    "title":"title",
+                    "description":"",
+                    "allergies":["nøtter","melk"],
+                    "price":"price",
+                    "veggie":true
+                }
+            ]
         }
-    }
+    ]
 }
