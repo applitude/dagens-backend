@@ -1,7 +1,11 @@
 dagens-backend
 
-- Amazon Lambda kjører funksjon kl 20 hver dag, puller fra Vegar M. sitt API og lagrer til JSON som «HashMap» av retter med info
+- Amazon Lambda kjører funksjon kl 20 hver dag, crawler SiO sin nettside 
+og lagrer til JSON som «HashMap» av retter med info
 - S3 lagrer fila og svarer på HTTP requests
 
 Maven
 - Builde: mvn package (i root dir, samme mappe som pom.xml)
+
+- endpoint kommer til å være https://todays-dinner.s3-eu-west-1.amazonaws.com/food.json
+- vi bruker utf-8 som encoding på api-et
