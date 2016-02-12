@@ -1,10 +1,10 @@
 {
     "timestamp":timestamp,
-    "locations"[
+    "locations":[
         {
             "address":"address",
             "place":"place",
-            "dishes"[
+            "dishes":[
 
                 {
                     "title":"title",
@@ -25,7 +25,7 @@
         {
             "address":"address",
             "place":"place",
-            "dishes"[
+            "dishes":[
 
                 {
                     "title":"title",
