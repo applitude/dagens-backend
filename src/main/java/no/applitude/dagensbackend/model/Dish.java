@@ -1,13 +1,13 @@
-package no.applitude.dagensbackend;
+package no.applitude.dagensbackend.model;
 
-class Dish{
+public class Dish {
     private String title;
     private String description;
     private String[] allergies;
     private String price;
     private boolean veggie;
 
-    public Dish(String title, String description, String []allergies, String price, boolean veggie){
+    public Dish (String title, String description, String []allergies, String price, boolean veggie) {
         this.title = title;
         this.description = description;
         this.allergies = allergies;

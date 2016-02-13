@@ -1,4 +1,4 @@
-package no.applitude.dagensbackend;
+package no.applitude.dagensbackend.apiclient;
 
 public enum CafeteriaEndpoint {
     ANDREA("285"),
