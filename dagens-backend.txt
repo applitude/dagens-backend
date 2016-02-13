@@ -1,11 +1,43 @@
 dagens-backend
-
 - Amazon Lambda kjører funksjon kl 20 hver dag, crawler SiO sin nettside 
 og lagrer til JSON som «HashMap» av retter med info
 - S3 lagrer fila og svarer på HTTP requests
+
 
 Maven
 - Builde: mvn package (i root dir, samme mappe som pom.xml)
 
 - endpoint kommer til å være https://todays-dinner.s3-eu-west-1.amazonaws.com/food.json
 - vi bruker utf-8 som encoding på api-et
+
+
+Hvordan SIO sitt dagens middag endpoint fungerer
+- BASE ENDPOINTET: https://sio.no/mat-og-drikke/_window/mat+og+drikke+-+dagens+middag?s=
+- Etter likhetstegnet i URLen over må det være et tall for å indikere hvilken kafeteria.
+- Det som er tilgjengelig:
+
+   	"andrea": 285,
+    "annas": 281,
+    "arkitekturhoegskolen": 72,
+    "aulakjelleren": 282,
+    "forskningsveien": 283,
+    "frederikke": 122,
+    "hannas": 299,
+    "helga": 295,
+    "idrettshoegskolen": 157,
+    "informateket": 158,
+    "informatikk": 284,
+    "ole": 154,
+    "aarstiden": 296,
+    "kutt": 310,
+    "medica": 297,
+    "musikkhoegskolen": 159,
+    "odontologi": 298,
+    "seilduken": 155,
+    "P35": 71,
+    "sv": 153,
+    "veterinaerhoegskolen": 160
+ 
+ - Eksempel for å få dagens rett for informatikk sin kafeteria: https://sio.no/mat-og-drikke/_window/mat+og+drikke+-+dagens+middag?s=284
+	
+
