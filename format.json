@@ -8,14 +8,12 @@
 
                 {
                     "title":"title",
-                    "description":"",
                     "allergies":["nøtter","melk"],
                     "price":"price",
                     "veggie":true
                 },
                 {
                     "title":"title",
-                    "description":"",
                     "allergies":["nøtter","melk"],
                     "price":"price",
                     "veggie":true
@@ -29,14 +27,12 @@
 
                 {
                     "title":"title",
-                    "description":"",
                     "allergies":["nøtter","melk"],
                     "price":"price",
                     "veggie":true
                 },
                 {
                     "title":"title",
-                    "description":"",
                     "allergies":["nøtter","melk"],
                     "price":"price",
                     "veggie":true
