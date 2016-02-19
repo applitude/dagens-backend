@@ -1,4 +1,5 @@
 package no.applitude.dagensbackend.model;
+import java.util.Arrays;
 
 class JsonData{
     private int timestamp;
