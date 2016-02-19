@@ -17,4 +17,6 @@ class Main {
         System.out.println(g.toJson(new Dish("pizza", "nice pizza", allergies, "55kr", true)));
         new TodaysDinnerClient();
     }
+
+
 }

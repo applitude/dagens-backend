@@ -1,2 +1,6 @@
-no/applitude/dagensbackend/Dish.class
+no/applitude/dagensbackend/apiclient/CafeteriaEndpoint.class
+no/applitude/dagensbackend/model/Dish.class
 no/applitude/dagensbackend/Main.class
+no/applitude/dagensbackend/apiclient/TodaysDinnerClient.class
+no/applitude/dagensbackend/AmazonUpload.class
+no/applitude/dagensbackend/LambdaHandler.class
