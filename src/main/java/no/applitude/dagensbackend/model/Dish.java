@@ -6,14 +6,34 @@ public class Dish {
     private String[] allergies;
     private String price;
     private boolean veggie;
+    
 
     public Dish (String title, String price, boolean veggie) {
-        this.title = title;
-        this.price = price;
-        this.veggie = veggie;
+        this.setTitle(title);
+        this.setPrice(price);
+        this.setVeggie(veggie);
     }
+    
     public void add(String s){
         allergies = Arrays.copyOf(allergies, allergies.length+1);
         allergies[allergies.length-1] = s;
     }
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	public boolean isVeggie() {
+		return veggie;
+	}
+	public void setVeggie(boolean veggie) {
+		this.veggie = veggie;
+	}
 }

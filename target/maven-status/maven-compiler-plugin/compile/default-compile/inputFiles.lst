@@ -1,2 +1,9 @@
-/home/roypur/UiO/applitude/dagens-backend/src/main/java/no/applitude/dagensbackend/Dish.java
-/home/roypur/UiO/applitude/dagens-backend/src/main/java/no/applitude/dagensbackend/Main.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/apiclient/DinnerClientInterface.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/apiclient/TodaysDinnerClient.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/model/Location.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/LambdaHandler.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/model/JsonData.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/model/Dish.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/AmazonUpload.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/apiclient/CafeteriaEndpoint.java
+/Users/Admin/Documents/Repositories/Github/dagens-backend/src/main/java/no/applitude/dagensbackend/Main.java

@@ -4,7 +4,7 @@ import java.util.Arrays;
 class JsonData{
     private int timestamp;
     private Location []locations;
-    public JsonData(){
+    public JsonData() {
         long millis = System.currentTimeMillis();
         this.timestamp = (int)millis/1000;
     }
