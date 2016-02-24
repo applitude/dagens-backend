@@ -29,7 +29,7 @@ public class TodaysDinnerClient {
 	}
 	
 	private void parseHTML() throws IOException {
-		String url = this.createCafeteriaEndpoint().get(0);
+		String url = this.createCafeteriaEndpoint().get(16);
 		Document htmlDocument = Jsoup.connect(url).get();
 		
 		Elements tableTag = htmlDocument.getElementsByClass("inner-spisested");
@@ -54,20 +54,15 @@ public class TodaysDinnerClient {
 			if (title.equalsIgnoreCase("Dagens")) {
 				dish.setTitle(content);
 				dish.setVeggie(false);
-			
+				
 			} else if (title.equalsIgnoreCase("Vegetar")) {
-				dish.setVeggie(true);
+				veggieDish.setTitle(content);
+				veggieDish.setVeggie(true);
 			
 			} else if (title.equalsIgnoreCase("Pris")) {
-				dish.setPrice(content);
+				System.out.println(content);
 			}
-			
-			dishes.add(dish);
-			dishes.add(veggieDish);
 		}
-		
-		System.out.println(dishes.toString());
-		
 	}
 
 	private ArrayList <String> selectTitles(Elements htmlTable) {

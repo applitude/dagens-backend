@@ -40,7 +40,7 @@ public class Dish {
 	
 	@Override
 	public String toString() {
-		String description = String.format("Title:%s Price:%s  Veggie:%b ", this.title, this.price, this.veggie);
+		String description = String.format("Title:%s Price:%s  Veggie:%b \n", this.title, this.price, this.veggie);
 		return description;
 	}
 }
