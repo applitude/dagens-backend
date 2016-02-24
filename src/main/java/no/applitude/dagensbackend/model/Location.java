@@ -4,7 +4,7 @@ import java.util.Arrays;
 class Location {
     private String address;
     private String place;
-    private Dish []dishes;
+    private Dish [] dishes;
 
     public Location(String address, String place){
         this.address = address;

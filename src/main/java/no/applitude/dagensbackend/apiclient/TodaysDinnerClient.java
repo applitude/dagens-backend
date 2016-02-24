@@ -61,7 +61,6 @@ public class TodaysDinnerClient {
 				veggieDish.setVeggie(true);
 				
 			} else if (title.equalsIgnoreCase("Pris")) {
-				System.out.println(dish);
 				price = content;
 			}
 		}
