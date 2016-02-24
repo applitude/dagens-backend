@@ -40,27 +40,29 @@ public class TodaysDinnerClient {
 		createDishes(titles, contents);
 	}
 	
+	
+	// Handle edge cases
 	private void createDishes(ArrayList <String> titles, ArrayList <String> contents) {
-		
-		ArrayList <Dish> dishes = new ArrayList <Dish>();
-		
+
 		Dish dish = new Dish("", "", false);
 		Dish veggieDish = new Dish("", "", false);
 		
 		for (int i = 0; i<titles.size(); i++) {
 			String title = titles.get(i);
 			String content = contents.get(i);
+			String price = null;
 			
 			if (title.equalsIgnoreCase("Dagens")) {
 				dish.setTitle(content);
 				dish.setVeggie(false);
 				
-			} else if (title.equalsIgnoreCase("Vegetar")) {
+			} else if (title.equalsIgnoreCase("Vegetar") || title.equalsIgnoreCase("Suppe")) {
 				veggieDish.setTitle(content);
 				veggieDish.setVeggie(true);
-			
+				
 			} else if (title.equalsIgnoreCase("Pris")) {
-				System.out.println(content);
+				System.out.println(dish);
+				price = content;
 			}
 		}
 	}
