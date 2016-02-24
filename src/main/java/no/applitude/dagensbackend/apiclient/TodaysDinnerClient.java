@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import no.applitude.dagensbackend.model.Dish;
 
-public class TodaysDinnerClient implements DinnerClientInterface {
+public class TodaysDinnerClient {
 	private final static String BASE_URL = "https://sio.no/mat-og-drikke/_window/mat+og+drikke+-+dagens+middag?s=";
 	private final static String URL_ENDPOINT = "https://sio.no/mat-og-drikke/_window/mat+og+drikke+-+dagens+middag?s=%s";	
 	
@@ -19,10 +19,12 @@ public class TodaysDinnerClient implements DinnerClientInterface {
 	
 	public ArrayList<String> createCafeteriaEndpoint() {
 		ArrayList <String> endpoints = new ArrayList <String>();
+		
 		for (CafeteriaEndpoint element : CafeteriaEndpoint.values()) {
 			String endpoint = String.format(URL_ENDPOINT, element.value());
 			endpoints.add(endpoint);
 		}
+		
 		return endpoints;
 	}
 	
@@ -35,29 +37,42 @@ public class TodaysDinnerClient implements DinnerClientInterface {
 		ArrayList <String> titles = this.selectTitles(tableTag);
 		ArrayList <String> contents = this.selectSpans(tableTag); 
 		
-		this.createDishes(titles, contents);
+		createDishes(titles, contents);
 	}
 	
 	private void createDishes(ArrayList <String> titles, ArrayList <String> contents) {
-
+		
+		ArrayList <Dish> dishes = new ArrayList <Dish>();
+		
 		Dish dish = new Dish("", "", false);
+		Dish veggieDish = new Dish("", "", false);
 		
 		for (int i = 0; i<titles.size(); i++) {
 			String title = titles.get(i);
 			String content = contents.get(i);
+			
 			if (title.equalsIgnoreCase("Dagens")) {
 				dish.setTitle(content);
+				dish.setVeggie(false);
+			
 			} else if (title.equalsIgnoreCase("Vegetar")) {
 				dish.setVeggie(true);
+			
 			} else if (title.equalsIgnoreCase("Pris")) {
 				dish.setPrice(content);
 			}
+			
+			dishes.add(dish);
+			dishes.add(veggieDish);
 		}
+		
+		System.out.println(dishes.toString());
+		
 	}
-	
 
 	private ArrayList <String> selectTitles(Elements htmlTable) {
 		ArrayList <String> titles = new ArrayList <String>();
+		
 		for (Element tag : htmlTable.select("h3")) {
 			String name = tag.text();
 			titles.add(name);
@@ -65,8 +80,9 @@ public class TodaysDinnerClient implements DinnerClientInterface {
 		return titles;
 	}
 	
-	public ArrayList<String> selectSpans(Elements htmlTable) {
+	private ArrayList<String> selectSpans(Elements htmlTable) {
 		ArrayList <String> contents = new ArrayList <String>();
+		
 		for (Element span : htmlTable.select("span")) {
 			String content = span.text();
 			contents.add(content);

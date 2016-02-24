@@ -1,7 +1,7 @@
 package no.applitude.dagensbackend.model;
 import java.util.Arrays;
 
-class Location{
+class Location {
     private String address;
     private String place;
     private Dish []dishes;

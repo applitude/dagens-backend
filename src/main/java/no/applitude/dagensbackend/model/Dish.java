@@ -1,6 +1,7 @@
 package no.applitude.dagensbackend.model;
 import java.util.Arrays;
 
+
 public class Dish {
     private String title;
     private String[] allergies;
@@ -35,5 +36,11 @@ public class Dish {
 	}
 	public void setVeggie(boolean veggie) {
 		this.veggie = veggie;
+	}
+	
+	@Override
+	public String toString() {
+		String description = String.format("Title:%s Price:%s  Veggie:%b ", this.title, this.price, this.veggie);
+		return description;
 	}
 }
