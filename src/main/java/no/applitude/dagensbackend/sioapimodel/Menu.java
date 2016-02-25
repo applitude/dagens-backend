@@ -1,14 +1,16 @@
 package no.applitude.dagensbackend.sioapimodel;
 
+import java.util.List;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Menu {
 	
 	@SerializedName("date")
-	private String date;
+	public String date;
 	
-	@SerializedName("dinners")
-	private Dinner [] dinners;
+	@SerializedName("dinner")
+	public List <Dinner> dinner; 
 	
 	
 }

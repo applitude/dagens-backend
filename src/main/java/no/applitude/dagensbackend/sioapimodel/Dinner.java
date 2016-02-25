@@ -4,14 +4,14 @@ import com.google.gson.annotations.SerializedName;
 
 public class Dinner {
 	@SerializedName("name")
-	private String name;
+	public String name;
 	
 	@SerializedName("type")
-	private String type;
+	public String type;
 	
 	@SerializedName("noGluten")
-	private boolean noGluten;
+	public boolean noGluten;
 	
 	@SerializedName("noLactose")
-	private boolean noLactose;
+	public boolean noLactose;
 }

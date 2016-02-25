@@ -1,6 +1,7 @@
 package no.applitude.dagensbackend.sioapimodel;
 
 import java.util.HashMap;
+import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -9,46 +10,46 @@ import no.applitude.dagensbackend.sioapimodel.Menu;
 
 
 public class SioApiModel {
-	@SerializedName("name") 
-	private String name;
+	@SerializedName("name")
+	public String name;
 	
 	@SerializedName("house")
-	private String house;
+	public String house;
 	
 	@SerializedName("description")
-	private String description;
+	public String description;
 	
 	@SerializedName("campus")
-	private String campus;
+	 public String campus;
 	
 	@SerializedName("stengt")
-	private HashMap<String,String> [] stengt;
+	 public HashMap<String, String> [] stengt;
 	
 	@SerializedName("opening")
-	private HashMap<String, String> [] opening;
+	 public HashMap<String, String> [] opening;
 	
 	@SerializedName("extraopening")
-	private HashMap<String, ExtraOpening>[] extraopening;
+	 public List <ExtraOpening> extraopening;
 	
 	@SerializedName("longitude")
-	private int longitude;
+	 public float longitude;
 	
 	@SerializedName("latitude")
-	private int latitude;
+	 public float latitude;
 	
 	@SerializedName("address")
-	private String address;
+	 public String address;
 	
 	@SerializedName("email")
-	private String email;
+	 public String email;
 	
 	@SerializedName("telephone")
-	private String telephone;
+	 public String telephone;
 	
 	@SerializedName("week")
-	private int week;
+	 public int week;
 	
 	@SerializedName("menu")
-	private HashMap <String, Menu> menu;
+	 public List <Menu> menu;
 	
 }

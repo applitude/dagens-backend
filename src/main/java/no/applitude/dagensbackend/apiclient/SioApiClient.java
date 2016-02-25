@@ -1,8 +1,6 @@
 package no.applitude.dagensbackend.apiclient;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,12 +17,13 @@ import com.google.gson.reflect.TypeToken;
 
 public class SioApiClient {
 	private static String API_ENDPOINT = "https://app.sio.no/api/middag/v1/open/content/restaurants?lang=no";	
+	private static List <SioApiModel> applitudeModel;
 	
 	public SioApiClient() throws MalformedURLException, IOException {
-		this.createModel(this.fetchJsonData());
+		this.createApplitudeModel(this.deserialize(this.fetchJsonData()));
 	}
-	
-	public String fetchJsonData () throws MalformedURLException, IOException {
+		
+	private String fetchJsonData () throws MalformedURLException, IOException {
 		String urlString = API_ENDPOINT;
 		
 		URL url = new URL(urlString);
@@ -33,24 +32,27 @@ public class SioApiClient {
 		InputStream connectionStream = connection.getInputStream();
 		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(connectionStream));
 
-		StringBuilder jsonString = new StringBuilder();
+		StringBuilder json = new StringBuilder();
 		
 		String lineRead;
 		while ((lineRead = bufferReader.readLine()) != null) {
-			jsonString.append(lineRead);
+			json.append(lineRead);
 		}
 		
-		return jsonString.toString();
+		return json.toString();
 	}
 	
-	public void createModel(String jsonString) {
+	private List <SioApiModel> deserialize(String jsonString) {
 		Gson gson = new Gson();		
-		SioApiModel [] test = gson.fromJson(jsonString, SioApiModel[].class);
-		System.out.println(test);
 		
+		Type typeFromJsonString = new TypeToken<List<SioApiModel>>(){}.getType();
+		List <SioApiModel> deserializedToList = gson.fromJson(jsonString, typeFromJsonString);
+		
+		return deserializedToList;
 	}
 	
-	
-	
-	
+	public List <SioApiModel> createApplitudeModel (List <SioApiModel> deserialized) throws MalformedURLException, IOException {
+		
+		return null;
+	}
 }

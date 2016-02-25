@@ -6,9 +6,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class ExtraOpening {
 	@SerializedName("label")
-	private String label;
+	String label;
 	
 	@SerializedName("openings")
-	private HashMap<String,String> openings;
+	HashMap<String, String> [] openings;
 
 }
