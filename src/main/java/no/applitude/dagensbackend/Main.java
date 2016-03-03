@@ -10,9 +10,8 @@ import no.applitude.dagensbackend.apiclient.TodaysDinnerClient;
 
 class Main {
     public static void main(String []args) throws MalformedURLException, IOException, JSONException {
-        new TodaysDinnerClient();
-        String applitudeJsonData = new SioApiClient().getApplitudeJsonData();
+        String fileName = "sioapi";
+    	String applitudeJsonData = new SioApiClient().getApplitudeJsonData();
+        AmazonUpload uploadFile = new AmazonUpload(fileName, applitudeJsonData);
     }
-
-
 }
