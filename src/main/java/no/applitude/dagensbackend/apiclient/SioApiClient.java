@@ -18,33 +18,24 @@ import java.text.SimpleDateFormat;
 
 import no.applitude.dagensbackend.sioapimodel.*;
 
-import com.amazonaws.util.json.JSONException;
-import com.amazonaws.util.json.JSONObject;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 public class SioApiClient {
 	private final static String API_ENDPOINT = "https://app.sio.no/api/middag/v1/open/content/restaurants?lang=no";
 
-	public String getSioApiData() throws MalformedURLException, IOException, JSONException {
-		String json = this.fetchJsonData();
-		ArrayList<SioApiModel> deserializedModel = this.deserializeToModel(json);
+	public String getApplitudeJsonData () throws MalformedURLException, IOException {
+		String jsonString = this.fetchJsonData();
+		ArrayList<SioApiModel> deserializedModel = this.deserializeToModel(jsonString);
 		ArrayList <HashMap<String, Object>> customApplitudeModel = this.createCustomApplitudeModel(deserializedModel);
-		
+	
 		HashMap <String, ArrayList <HashMap<String, Object>>> jsonData = new HashMap <String, ArrayList <HashMap<String, Object>>>(); 
 		jsonData.put("data", customApplitudeModel);
 		
+		Gson gson = new Gson();
+		String serializeToJson = gson.toJson(jsonData);
 		
-		 Gson gson = new Gson();
-		 String jsonString = gson.toJson(customApplitudeModel);
-		 try {
-		        JSONObject request = new JSONObject(jsonString);
-		    } catch (JSONException e) {
-		        // TODO Auto-generated catch block
-		        e.printStackTrace();
-		    }
-
-		return "Error in creating seriliazing hashmap to JSON";
+		return serializeToJson;
 	}
 
 	private String fetchJsonData() throws MalformedURLException, IOException {
@@ -137,7 +128,6 @@ public class SioApiClient {
 							if (menuTwoDaysAhead.containsKey(date)) {
 								ArrayList<Dinner> dinnerList = menuTwoDaysAhead.get(date);
 								dinnerList.addAll(menu.dinner);
-								System.out.println(dinnerList);
 								menuTwoDaysAhead.put(date, dinnerList);
 							}
 						}
@@ -151,7 +141,7 @@ public class SioApiClient {
 	private ArrayList<String> createDates() {
 		ArrayList<String> dates = new ArrayList<String>();
 
-		// Date formatting to String
+		// Date format for String
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 		// Today
