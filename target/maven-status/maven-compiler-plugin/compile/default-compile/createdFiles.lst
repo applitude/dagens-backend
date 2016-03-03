@@ -1,8 +1,14 @@
 no/applitude/dagensbackend/model/Dish.class
+no/applitude/dagensbackend/apiclient/SioApiClient$1.class
 no/applitude/dagensbackend/Main.class
 no/applitude/dagensbackend/apiclient/TodaysDinnerClient.class
 no/applitude/dagensbackend/AmazonUpload.class
 no/applitude/dagensbackend/apiclient/CafeteriaEndpoint.class
-no/applitude/dagensbackend/model/Location.class
 no/applitude/dagensbackend/LambdaHandler.class
 no/applitude/dagensbackend/model/JsonData.class
+no/applitude/dagensbackend/sioapimodel/Dinner.class
+no/applitude/dagensbackend/sioapimodel/SioApiModel.class
+no/applitude/dagensbackend/apiclient/SioApiClient.class
+no/applitude/dagensbackend/sioapimodel/ExtraOpening.class
+no/applitude/dagensbackend/model/Location.class
+no/applitude/dagensbackend/sioapimodel/Menu.class

@@ -15,6 +15,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+//import java.nio.charset.Charset;
 
 import no.applitude.dagensbackend.sioapimodel.*;
 
@@ -45,7 +46,7 @@ public class SioApiClient {
 		URLConnection connection = url.openConnection();
 
 		InputStream connectionStream = connection.getInputStream();
-		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(connectionStream));
+		BufferedReader bufferReader = new BufferedReader(new InputStreamReader(connectionStream, "UTF-8"));
 
 		StringBuilder json = new StringBuilder();
 

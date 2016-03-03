@@ -18,9 +18,8 @@ public class AmazonUpload {
 
             String bucketName = "todays-dinner";
             String jsonFile = String.format("%s.json", fileName);
-            System.out.println(jsonFile);
             
-            InputStream is = new ByteArrayInputStream(jsonString.getBytes());
+            InputStream is = new ByteArrayInputStream(jsonString.getBytes("UTF-8"));
 
             ObjectMetadata meta = new ObjectMetadata();
             meta.setContentType("application/json; charset=utf-8");
@@ -31,9 +30,9 @@ public class AmazonUpload {
 
             AmazonS3 s3client = new AmazonS3Client(new DefaultAWSCredentialsProviderChain());
             s3client.setObjectAcl(bucketName, jsonFile, CannedAccessControlList.PublicRead);
-
+            
         } catch(Exception e) {
-        
+            System.exit(1);
         }
     }
 }
