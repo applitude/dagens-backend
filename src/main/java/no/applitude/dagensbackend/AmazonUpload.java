@@ -19,11 +19,13 @@ public class AmazonUpload {
             String bucketName = "todays-dinner";
             String jsonFile = String.format("%s.json", fileName);
             
-            InputStream is = new ByteArrayInputStream(jsonString.getBytes("UTF-8"));
+            byte[] data = jsonString.getBytes("UTF-8");
+            
+            InputStream is = new ByteArrayInputStream(data);
 
             ObjectMetadata meta = new ObjectMetadata();
             meta.setContentType("application/json; charset=utf-8");
-            meta.setContentLength(jsonString.getBytes().length);
+            meta.setContentLength(data.length);
 
             Upload upload = tm.upload(bucketName, jsonFile, is, meta);
             upload.waitForCompletion();
