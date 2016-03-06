@@ -139,11 +139,11 @@ public class SioApiClient {
 		return menuTwoDaysAhead;
 	}
     private String newDate(Calendar cal){
-        cal.add(Calendar.DATE, 1);
 	
 	    if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
 	        return null;
 	    }
+	    
 	    Date date = cal.getTime();
 	    
 	    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
