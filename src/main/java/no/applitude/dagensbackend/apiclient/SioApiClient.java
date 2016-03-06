@@ -138,34 +138,38 @@ public class SioApiClient {
 		}
 		return menuTwoDaysAhead;
 	}
-
+    private String newDate(Calendar cal){
+        cal.add(Calendar.DATE, 1);
+	
+	    if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
+	        return null;
+	    }
+	    Date date = cal.getTime();
+	    
+	    DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	    
+	    // Using DateFormat format method we can create a string
+		// representation of a date with the defined format.
+	    String txt = df.format(date);
+	    
+	    return txt;
+	    
+	}
 	private ArrayList<String> createDates() {
 		ArrayList<String> dates = new ArrayList<String>();
-
-		// Date format for String
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-
-		// Today
-		Calendar calender = Calendar.getInstance();
-		Date today = calender.getTime();
-
-		// Tomorrow
-		calender.add(Calendar.DATE, 1);
-		Date tomorrow = calender.getTime();
-
-		// Day after tomorrow
-		calender.add(Calendar.DATE, 1);
-		Date dayAfterTomorrow = calender.getTime();
-
-		// Using DateFormat format method we can create a string
-		// representation of a date with the defined format.
-		String todayString = df.format(today);
-		String tomorrowString = df.format(tomorrow);
-		String dayAfterTomorrowString = df.format(dayAfterTomorrow);
-
-		dates.add(todayString);
-		dates.add(tomorrowString);
-		dates.add(dayAfterTomorrowString);
+		
+		Calendar calendar = Calendar.getInstance();
+		
+		// add next three days
+		for(int i=0; i < 3; i++){
+			if(newDate(calendar) != null){
+		        dates.add(newDate(calendar));
+		        calendar.add(Calendar.DATE, 1);
+		    }else{
+		        //weekend
+		        break;
+		    }
+		}
 
 		return dates;
 	}
