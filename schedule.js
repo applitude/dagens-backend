@@ -40,13 +40,13 @@ exports.handler = function(event, c){
     
     date = new Date();
     
+    var lastSunday = date.getDay() === 0 && sundays === 1;
+    
     // if this sunday is the last of the month, or last sunday has passed
-    if(sundays === 0 || date.getDay() === 0 && sundays === 1){
-        if(month == 3){
-            enableSummer();
-        }else if(month == 10){
-            enableWinter();
-        }
+    if((sundays === 0 || lastSunday) && month === 3){
+        enableSummer();
+    }else if((sundays === 0 || lastSunday) && month === 10){
+        enableWinter();
     }else{
         if(month >= 1 && month <= 3 || month >= 11){
             enableWinter();
@@ -55,9 +55,6 @@ exports.handler = function(event, c){
         }
     }
 }
-
-
-
 
 function enableSummer(){
     cloudwatchevents.enableRule(SUMMER_PARAM, log);
