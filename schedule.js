@@ -43,14 +43,14 @@ exports.handler = function(event, c){
     var lastSunday = date.getDay() === 0 && sundays === 1;
     
     // if this sunday is the last of the month, or last sunday has passed
-    if((sundays === 0 || lastSunday) && month === 3){
+    if((sundays === 0 || lastSunday) && month === 2){
         enableSummer();
-    }else if((sundays === 0 || lastSunday) && month === 10){
+    }else if((sundays === 0 || lastSunday) && month === 9){
         enableWinter();
     }else{
-        if(month >= 1 && month <= 3 || month >= 11){
+        if(month <= 2 || month >= 9){
             enableWinter();
-        }else if(month >= 4 && month <= 10){
+        }else if(month >= 3 && month <= 9){
             enableSummer();
         }
     }
