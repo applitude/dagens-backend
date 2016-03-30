@@ -104,7 +104,7 @@ public class SioApiClient {
 				resturantData.put("longitude", longitude);
 				resturantData.put("latitude", latitude);
 				resturantData.put("week", week);
-				resturantData.put("resturants", menuTwoDaysAhead);
+				resturantData.put("restaurants", menuTwoDaysAhead);
 
 				resturantDataList.add(resturantData);
 			}
@@ -114,6 +114,7 @@ public class SioApiClient {
 	}
 
 	private HashMap<String, ArrayList<Dinner>> menuTwoDaysAhead(List<Menu> weeklyMenu) {
+		
 		ArrayList<String> datesOfInterest = this.createDates();
 		HashMap<String, ArrayList<Dinner>> menuTwoDaysAhead = new HashMap<String, ArrayList<Dinner>>();
 
@@ -138,9 +139,9 @@ public class SioApiClient {
 		}
 		return menuTwoDaysAhead;
 	}
-    private String newDate(Calendar cal){
+    private String newDate(Calendar cal) {
 	
-	    if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
+	    if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY){
 	        return null;
 	    }
 	    
